@@ -1,22 +1,22 @@
 import pandas as pd
 
-# Load the dataset
-file_path = '/path/to/your/outbreaks.csv'  # Update this path to your actual file location
-data = pd.read_csv( file_path )
+# code that loads the dataset
+file_path = '/Users/sagedrewke/Downloads/outbreaks.csv'
+data = pd.read_csv(file_path)
 
-# Display the first few rows of the dataset to understand its structure
-print( "Original Data:" )
-print( data.head() )
+# displays the first observations in the dataset
+print("Original Data:")
+print(data.head())
 
-# Handling Missing Values
 
-# Fill missing numeric values with the median of the column
-numeric_cols = data.select_dtypes( include = [ 'float64' , 'int64' ] ).columns
-data[numeric_cols] = data[ numeric_cols ].fillna( data[numeric_cols ].median() )
 
-# Fill missing categorical values with the mode of the column
-categorical_cols = data.select_dtypes( include = [ 'object' ] ).columns
-data[categorical_cols] = data[ categorical_cols ].apply( lambda x: x.fillna( x.mode()[ 0 ] ) )
+# to handle missing values, replaces them with median of the column
+numeric_cols = data.select_dtypes(include=['float64', 'int64']).columns
+data[numeric_cols] = data[numeric_cols].fillna(data[numeric_cols].median())
+
+# replace missing variables with mode of the column
+categorical_cols = data.select_dtypes(include=['object']).columns
+data[categorical_cols] = data[categorical_cols].apply(lambda x: x.fillna(x.mode()[0]))
 
 # case for handling duplicates
 
