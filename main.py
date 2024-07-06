@@ -2,11 +2,11 @@ import pandas as pd
 
 # Load the dataset
 file_path = '/path/to/your/outbreaks.csv'  # Update this path to your actual file location
-data = pd.read_csv(file_path)
+data = pd.read_csv( file_path )
 
 # Display the first few rows of the dataset to understand its structure
-print("Original Data:")
-print(data.head())
+print( "Original Data:" )
+print( data.head() )
 
 # Handling Missing Values
 
