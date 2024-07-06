@@ -2,21 +2,19 @@ import pandas as pd
 
 # code that loads the dataset
 file_path = '/Users/sagedrewke/Downloads/outbreaks.csv'
-data = pd.read_csv(file_path)
+data = pd.read_csv( file_path )
 
 # displays the first observations in the dataset
-print("Original Data:")
-print(data.head())
-
-
+print( "Original Data:" )
+print( data.head() )
 
 # to handle missing values, replaces them with median of the column
-numeric_cols = data.select_dtypes(include=['float64', 'int64']).columns
-data[numeric_cols] = data[numeric_cols].fillna(data[numeric_cols].median())
+numeric_cols = data.select_dtypes( include = [ 'float64' , 'int64' ] ).columns
+data[numeric_cols] = data[ numeric_cols ].fillna( data[ numeric_cols ].median() )
 
 # replace missing variables with mode of the column
-categorical_cols = data.select_dtypes(include=['object']).columns
-data[categorical_cols] = data[categorical_cols].apply(lambda x: x.fillna(x.mode()[0]))
+categorical_cols = data.select_dtypes( include = [ 'object' ] ).columns
+data[ categorical_cols ] = data[ categorical_cols ].apply( lambda x: x.fillna( x.mode()[ 0 ] ) )
 
 # case for handling duplicates
 
