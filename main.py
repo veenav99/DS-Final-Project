@@ -1,7 +1,7 @@
 import pandas as pd
 
 # Load the dataset
-file_path = '/mnt/data/outbreaks.csv'
+file_path = '/path/to/your/outbreaks.csv'  # Update this path to your actual file location
 data = pd.read_csv(file_path)
 
 # Display the first few rows of the dataset to understand its structure
@@ -41,8 +41,9 @@ print("\nCleaned Data:")
 print(data.head())
 
 # Save the cleaned dataset to a new CSV file
-cleaned_file_path = '/mnt/data/cleaned_outbreaks.csv'
+cleaned_file_path = '/path/to/save/cleaned_outbreaks.csv'  # Update this path to your actual save location
 data.to_csv(cleaned_file_path, index=False)
 
 print(f"\nCleaned dataset saved to: {cleaned_file_path}")
+
 
